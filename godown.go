@@ -126,7 +126,10 @@ func table(node *html.Node, w io.Writer, option *Option) {
 			}
 		}
 		fmt.Fprint(w, "|\n")
-		if i == 0 && header {
+		// For some reason, Mattermost's parser requires this header line to be here in order to convert it to a
+		// proper table.  Removing the header test and applying this to all tables.
+		//
+		if i == 0 {
 			for j := 0; j < maxcol; j++ {
 				fmt.Fprint(w, "|")
 				fmt.Fprint(w, strings.Repeat("-", widths[j]))

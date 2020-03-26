@@ -1,4 +1,4 @@
-module github.com/cseeger-epages/godown
+module github.com/justledbetter/godown
 
 go 1.13
 
